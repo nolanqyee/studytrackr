@@ -285,7 +285,7 @@ window.onload = function () {
     //the counting down function
     function countdown() {
       if (seconds==0){
-        if (minutes == "" || minutes == 0){
+        if ((minutes == "" || minutes == 0)||minutes==null){
           minutes = "00"
           if (seconds==0 && minutes == "00"){
             for(i=3; i<=5; i++){

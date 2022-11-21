@@ -8,7 +8,6 @@ timerimagelink.addEventListener("click", () => {
   stopwatchimagelink.src = "res/stopwatchbutton.png";
   timerimagelink.src = "res/timerbuttonclicked.png";
 })
-
 function openTab(evt, idtype) {
     var i, tabcontent, imagelinks;
   

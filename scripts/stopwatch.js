@@ -165,7 +165,6 @@ window.onload = function () {
     var timerstop = document.getElementById("timer-button-stop");
     var timerreset = document.getElementById("timer-button-reset");
     var timerset = document.getElementById("timer-button-set");
-
     //timer buttons appearing/disappearing
     timerstart.addEventListener("click", () => {
       timerstart.style.display="none";

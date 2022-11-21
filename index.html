@@ -13,7 +13,7 @@
   color: #070707;
   "class="wrapper">
 <h2>
-  <a class="imagelink" href="index.html">
+  <a class="imagelink">
     <img src="res/stlogo.png" width="68" height="60" style="
     vertical-align: middle;
     padding-right: 8px;
@@ -27,43 +27,62 @@
   padding-right: 10px;
   ">
 </h2>
-</div> 
+</div>
+
 <!--mode switching buttons-->
-<div id="modeswitch">
-  <a class="imagelink" href="index.html">
-    <img src="res/stopwatchbuttonclicked.png" width="24" height="26" style="
+<div class="modeswitch">
+  <a class="imagelinks" onclick="openTab(event, 'sw')">
+    <img id="stopwatchimagelink" src="res/stopwatchbuttonclicked.png" width="24" height="26" style="
     cursor: pointer;
     padding-top: 2px;
     vertical-align: middle;">
   </a>
   <span style="cursor: default;">|</span>
-  <a class="imagelink" href="countdowntimer.html">
-    <img src="res/timerbutton.png" width="28" height="29" style="
+  <a class="imagelinks" onclick="openTab(event,'tmr')">
+    <img id="timerimagelink" src="res/timerbutton.png" width="28" height="29" style="
     cursor: pointer;
     padding-top: 1px;
     vertical-align: middle;">
   </a>
 </div>
-<!--stopwatch body-->
+<!--body header-->
 <div id="stopwatchbody">
 <h3>track time and boost productivity!</h3>
-<div id="clockui">
+<!--stopwatch body (tab)-->
+<div id = "sw" class="tabcontent">
+<div class="clockui">
   <h2><span class="clock" id="hours">00</span>:<span class="clock" id = "minutes">00</span>:<span class="clock" id="seconds">00</span></h2>
 </div>
-  <button class="buttonstyle1" id="button-start">start timer</button>
-  <button class="buttonstyle1" id="button-done">stop timer</button>
-  <button class="buttonstyle1" id="button-reset">Save and Reset</button><br>
+<div id="stopwatch buttons">
+  <button class="buttonstyle1" id="button-start">start stopwatch</button>
+  <button class="buttonstyle1" id="button-done">stop stopwatch</button>
+  <button class="buttonstyle1" id="button-reset">save and reset</button>
+  <br>
+</div>
+</div>
+<!--timer body (tab)-->
+<div id = "tmr" class="tabcontent">
+<div class="clockui">
+  <h2 class="clock"><span class="clock" id="nminutes">00</span>:<span class="clock" id="nseconds">00</span></h2>
+</div>
+<div id="timerbuttons">
+  <button class="buttonstyle1" id="timer-button-start">start timer</button>
+  <button class="buttonstyle1" id="timer-button-stop">stop timer</button>
+  <button class="buttonstyle1" id="timer-button-reset">save and reset</button>
+  <button class="buttonstyle1" id="timer-button-set">set timer</button>
+</div>
+</div>
+<!--total (do not tab this)-->
   <h3>total session time: <span id="totalhours">00</span>:<span id="totalminutes">00</span>:<span id="totalseconds">00</span></h3>
-
 </div>
 
-<!--todolist-->
+<!--todolist header-->
 <div id="myDIV" class="header">
   <h2>to-do list</h2>
   <input type="text" id="myInput" placeholder="input a task!">
   <span onclick="newElement()" class="addBtn">Add</span>
 </div>
-
+<!--todolist list-->
 <ul style="width: 65%; margin: auto;" id="myUL">
   <li>add some tasks to get things done!</li>
 </ul>

@@ -7,8 +7,10 @@ body {background-color: #ebecef; font-family: "FreeMono", monospace;}
 * {
   box-sizing: border-box;
 }
-
-#modeswitch {
+#tmr {
+  display: none;
+}
+.modeswitch {
   width: 10%;
   background-color: white;
   color: #070707;
@@ -20,6 +22,12 @@ body {background-color: #ebecef; font-family: "FreeMono", monospace;}
   -webkit-border-radius: 20px;
   border-radius: 20px; 
   -khtml-border-radius: 20px;
+}
+.modeswitch button{
+  background-color: inherit;
+}
+.modeswitch button.active{
+  background-color: #ccc;
 }
 
 #stopwatchbody {
@@ -35,7 +43,7 @@ body {background-color: #ebecef; font-family: "FreeMono", monospace;}
   -khtml-border-radius: 20px;
 }
 
-#clockui {
+.clockui {
   background-color: #070707; 
   color: #50C878; 
   width: 25%; 
@@ -43,11 +51,21 @@ body {background-color: #ebecef; font-family: "FreeMono", monospace;}
   border-radius: 5px;
 }
 
-span.clock {
+.clock {
     color: #50C878;
 }
 
 #button-reset {
+    display: none;
+}
+
+#timer-button-start {
+    display: none;
+}
+#timer-button-reset {
+    display: none;
+}
+#timer-button-stop {
     display: none;
 }
 
@@ -178,7 +196,7 @@ text-decoration:none;
 text-align: center;
 cursor:pointer;
 padding:5px 0px;
-width:120px;
+width:130px;
 margin: 2px 1px 2px 1px;
  outline: none;
 }
@@ -193,4 +211,14 @@ margin: 2px 1px 2px 1px;
 
 .imagelink{
   text-decoration: none;
+}
+
+.tabcontent {
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }

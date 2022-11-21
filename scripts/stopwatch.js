@@ -15,20 +15,16 @@ window.onload = function () {
     var buttonStart = document.getElementById('button-start');
     var buttonDone = document.getElementById('button-done');
     var buttonReset = document.getElementById('button-reset');
-    var buttonClearWhole = document.getElementById("button-clear-whole");
     var appendTotalHours = document.getElementById("totalhours");
     var appendTotalMinutes = document.getElementById("totalminutes");
     var appendTotalSeconds = document.getElementById("totalseconds");
     // initial for interval
-    var Interval ;
+    var Interval;
   
     // when start button is clicked
     buttonStart.onclick = function() {
       clearInterval(Interval);
        Interval = setInterval(startTimer, 1000);
-      buttonStart.addEventListener("click", () =>{
-        buttonDone.style.display = "inline";  
-      })
     }
     // when stop button clicked
     buttonDone.onclick = function() {
@@ -49,68 +45,61 @@ window.onload = function () {
   
         var minutesresidue = totalminutes%60;
         totalhours += Math.trunc(totalminutes/60);
-        document.getElementById("totalhours").innerHTML = totalhours;
+        appendTotalHours.innerHTML = totalhours;
         if (totalhours == 0){
-          document.getElementById("totalhours").innerHTML = "00";
+          appendTotalHours.innerHTML = "00";
         }
         
         // calculating the remaining seconds after transferring the multiples of 60 into minutes
           if (totalseconds > 60){
             if (secondsresidue <= 9){
               totalseconds = "0" + secondsresidue;
-              document.getElementById("totalseconds").innerHTML = totalseconds;
+              appendTotalSeconds.innerHTML = totalseconds;
             } else {
               totalseconds = secondsresidue;
-              document.getElementById("totalseconds").innerHTML = totalseconds;
+              appendTotalSeconds.innerHTML = totalseconds;
             }
-            totalseconds = secondsresidue;
-            console.log("seconds first")
-  
+            totalseconds = secondsresidue;  
         } else if (totalseconds == 60){
             totalseconds = "00"
-            document.getElementById("totalseconds").innerHTML = totalseconds;
+            appendTotalSeconds.innerHTML = totalseconds;
             totalseconds = 0;
-            console.log("seconds middle")
         } else if (totalseconds < 60){
             if (secondsresidue <= 9){
               totalseconds = "0" + secondsresidue;
-              document.getElementById("totalseconds").innerHTML = totalseconds;
+              appendTotalSeconds.innerHTML = totalseconds;
             } else {
               totalseconds = secondsresidue;
-              document.getElementById("totalseconds").innerHTML = totalseconds;
+              appendTotalSeconds.innerHTML = totalseconds;
             }
             totalseconds = secondsresidue;
-            console.log("seconds last")
         }
   
         // same thing but for hours
           if (totalminutes > 60){  
             if (minutesresidue <= 9){
               totalminutes = "0" + minutesresidue;
-              document.getElementById("totalminutes").innerHTML = totalminutes;
+              appendTotalMinutes.innerHTML = totalminutes;
             } else{
               totalminutes = minutesresidue;
-              document.getElementById("totalminutes").innerHTML = totalminutes;
+              appendTotalMinutes.innerHTML = totalminutes;
             }
             totalminutes = minutesresidue;
-            console.log("hours first")
   
         } else if (totalminutes == 60){
             totalminutes = "00"
-            document.getElementById("totalminutes").innerHTML = totalminutes;
+            appendTotalMinutes.innerHTML = totalminutes;
             totalminutes = 0;
-            console.log("hours middle")
         } else if (totalminutes < 60){
             
             if (minutesresidue <= 9){
               totalminutes = "0" + minutesresidue;
-              document.getElementById("totalminutes").innerHTML = totalminutes;
+              appendTotalMinutes.innerHTML = totalminutes;
             } else{
               totalminutes = minutesresidue;
-              document.getElementById("totalminutes").innerHTML = totalminutes;
+              appendTotalMinutes.innerHTML = totalminutes;
             }
             totalminutes = minutesresidue;
-            console.log("hours last")
         }     
     }
     buttonDone.addEventListener("click", () => {
@@ -132,48 +121,201 @@ window.onload = function () {
       minutes = 0;
       seconds = 0;
       //test
-      
-      
     }
     buttonReset.addEventListener("click", () =>{
       buttonStart.style.display = "inline";
       buttonDone.style.display = "inline";
       buttonReset.style.display = "none";
     })
-     
     // this is what happens when you click start
     function startTimer () {
       seconds++; 
-      
       if(seconds <= 9){
         appendSeconds.innerHTML = "0" + seconds;
       }
-      
       if (seconds > 9){
         appendSeconds.innerHTML = seconds;
-        
       } 
-      
       if (seconds > 59) {
-        console.log("minutes");
         minutes++;
         appendMinutes.innerHTML = "0" + minutes;
         seconds = 0;
         appendSeconds.innerHTML = "0" + 0;
       }
-      
       if (minutes > 9){
         appendMinutes.innerHTML = minutes;
       }
-      
       if (minutes > 59) {
-        console.log("hours");
         hours++;
         appendHours.innerHTML = "0" + hours;
         minutes = 0;
         appendMinutes.innerHTML = "0" + 0;
       }
-    
     }
+
+
     
-  }
+    //declaring timer variables lol
+    var timerinput;
+    var timepassed;
+    var colorchangelol = document.getElementsByClassName("clock");
+    var timerminutes = document.getElementById("nminutes");
+    var timerseconds = document.getElementById("nseconds");
+    var timerstart = document.getElementById("timer-button-start");
+    var timerstop = document.getElementById("timer-button-stop");
+    var timerreset = document.getElementById("timer-button-reset");
+    var timerset = document.getElementById("timer-button-set");
+
+    //timer buttons appearing/disappearing
+    timerstart.addEventListener("click", () => {
+      timerstart.style.display="none";
+      timerstop.style.display="inline";
+      timerset.style.display="none";
+    })
+
+    timerstart.onclick = function() {
+      clearInterval(Interval);
+      Interval = setInterval(countdown, 1000);
+    }
+
+    timerstop.addEventListener("click", () =>{
+      timerstop.style.display="none";
+      timerreset.style.display="inline";
+    })
+    
+    timerstop.onclick = function(){
+      clearInterval(Interval);
+      timepassed = Number(timerinput)*60 - Number(timerminutes.innerHTML)*60 - Number(timerseconds.innerHTML);
+      minutes = Math.trunc(timepassed/60);
+      seconds = timepassed-minutes*60;
+      totalseconds += seconds;
+      totalminutes += minutes;
+      
+      var secondsresidue = totalseconds%60;
+      totalminutes += Math.trunc(totalseconds/60);
+
+      var minutesresidue = totalminutes%60;
+      totalhours += Math.trunc(totalminutes/60);
+      appendTotalHours.innerHTML = totalhours;
+      if (totalhours == 0){
+        appendTotalHours.innerHTML = "00";
+      }
+      
+      // calculating the remaining seconds after transferring the multiples of 60 into minutes
+        if (totalseconds > 60){
+          if (secondsresidue <= 9){
+            totalseconds = "0" + secondsresidue;
+            appendTotalSeconds.innerHTML = totalseconds;
+          } else {
+            totalseconds = secondsresidue;
+            appendTotalSeconds.innerHTML = totalseconds;
+          }
+          totalseconds = secondsresidue;  
+      } else if (totalseconds == 60){
+          totalseconds = "00"
+          appendTotalSeconds.innerHTML = totalseconds;
+          totalseconds = 0;
+      } else if (totalseconds < 60){
+          if (secondsresidue <= 9){
+            totalseconds = "0" + secondsresidue;
+            appendTotalSeconds.innerHTML = totalseconds;
+          } else {
+            totalseconds = secondsresidue;
+            appendTotalSeconds.innerHTML = totalseconds;
+          }
+          totalseconds = secondsresidue;
+      }
+
+      // same thing but for hours
+        if (totalminutes > 60){  
+          if (minutesresidue <= 9){
+            totalminutes = "0" + minutesresidue;
+            appendTotalMinutes.innerHTML = totalminutes;
+          } else{
+            totalminutes = minutesresidue;
+            appendTotalMinutes.innerHTML = totalminutes;
+          }
+          totalminutes = minutesresidue;
+
+      } else if (totalminutes == 60){
+          totalminutes = "00"
+          appendTotalMinutes.innerHTML = totalminutes;
+          totalminutes = 0;
+      } else if (totalminutes < 60){
+          
+          if (minutesresidue <= 9){
+            totalminutes = "0" + minutesresidue;
+            appendTotalMinutes.innerHTML = totalminutes;
+          } else{
+            totalminutes = minutesresidue;
+            appendTotalMinutes.innerHTML = totalminutes;
+          }
+          totalminutes = minutesresidue;
+      }     
+    }
+
+    timerreset.addEventListener("click", () => {
+      timerreset.style.display="none";
+      timerstart.style.display="inline";
+      timerset.style.display="inline";
+      minutes = "00";
+      seconds = "00";
+      timerminutes.innerHTML = minutes;
+      timerseconds.innerHTML = seconds;
+      minutes = 0;
+      seconds = 0;
+    })
+    
+    //setting the timer function
+    timerset.addEventListener("click", () =>{
+      timerinput = prompt("Enter a number of minutes:");
+      minutes = timerinput;
+      if (minutes<10){
+        timerminutes.innerHTML = "0" + minutes;
+      }
+      else {
+        timerminutes.innerHTML = minutes;
+      }
+      timerstart.style.display = "inline";
+      timerset.style.display = "none";
+    })
+
+    //countdown function variables
+    var mInterval;
+    var sInterval;
+    //the counting down function
+    function countdown() {
+      if (seconds==0){
+        if (minutes == "" || minutes == 0){
+          minutes = "00"
+          if (seconds==0 && minutes == "00"){
+            for(i=3; i<=5; i++){
+              colorchangelol[i].style.color = "#f44336";
+            }
+            return;
+          }
+        }
+        else {
+          minutes--;
+          if (minutes<10){
+            timerminutes.innerHTML = "0" + minutes;
+          }
+          else {
+            timerminutes.innerHTML = minutes;
+          }
+        }
+      }
+      if (seconds<1){
+        seconds = 59;
+        timerseconds.innerHTML = seconds;
+      }
+      else if (seconds <= 10){
+        seconds--;
+        timerseconds.innerHTML = "0" + seconds;
+      }
+      else if (seconds<60) { 
+        seconds--;
+        timerseconds.innerHTML = seconds;
+      }
+    }
+}

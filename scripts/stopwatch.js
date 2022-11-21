@@ -272,7 +272,11 @@ window.onload = function () {
     timerset.addEventListener("click", () =>{
       timerinput = prompt("Enter a number of minutes:");
       minutes = timerinput;
-      if (minutes<10){
+      if (minutes==""){
+        minutes=0;
+        timerminutes.innerHTML = "00";
+      }
+      else if (minutes<10){
         timerminutes.innerHTML = "0" + minutes;
       }
       else {

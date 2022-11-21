@@ -180,6 +180,9 @@ window.onload = function () {
     timerstop.addEventListener("click", () =>{
       timerstop.style.display="none";
       timerreset.style.display="inline";
+      for(i=3; i<=5; i++){
+        colorchangelol[i].style.color = "#50C878";
+      }
     })
     
     timerstop.onclick = function(){

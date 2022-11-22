@@ -286,9 +286,6 @@ window.onload = function () {
       timerset.style.display = "none";
     })
 
-    //countdown function variables
-    var mInterval;
-    var sInterval;
     //the counting down function
     function countdown() {
       if (seconds==0){

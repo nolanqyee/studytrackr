@@ -4,7 +4,6 @@ var modal = document.getElementById("helpModal");
 btn.onclick = function() {
   modal.style.display = "block";
 }
-
 //close if click outside
 window.onclick = function(event) {
   if (event.target == modal) {

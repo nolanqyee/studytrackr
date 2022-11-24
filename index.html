@@ -15,7 +15,7 @@
   color: #070707;
   "class="wrapper">
 <h2>
-  <a class="imagelink" onclick="location.replace('https://nolanqyee.github.io/studytrackr/')">
+  <a class="imagelink" onclick="location.reload()">
     <img src="res/stlogo.png" width="68" height="60" style="
     vertical-align: middle;
     padding-right: 8px;
@@ -23,13 +23,37 @@
     "><span style = "cursor: pointer; color: #070707;">studytrackr</span>
   </a>
   <img src="res/settingsicon.png" width="55" height="50" style="
+  cursor: pointer;
   float: right;
   vertical-align: text-bottom;
   padding-top: 5px;
-  padding-right: 10px;
-  ">
+  padding-right: 10px;">
+  <img id="helpbtn" src="res/helpicon.png" width="55" height="50" style="
+  cursor: pointer;
+  float: right;
+  vertical-align: text-bottom;
+  padding-top: 5px;
+  padding-right: 10px;">
 </h2>
 </div>
+
+
+<!--Help Modal-->
+<div id="helpModal" class="modal">
+  <!--content-->
+  <div class="modal-content">
+    <span class="helpclose">&times;</span>
+    <span><h3>StudyTrackr - Help</h3></span>
+    <span><img src="res/stopwatchbuttonclicked.png" width="16" height="17" style="vertical-align: text-bottom; padding-bottom: 1px"> The <b>stopwatch mode</b>, denoted by this button, allows you to measure how long something takes, keeping you productive by making sure you aren't spending too long to complete tasks.</span>
+    <br><br>
+    <span><img src="res/timerbuttonclicked.png" width="16" height="17" style="vertical-align: text-bottom; padding-bottom: 1px;"> The <b>timer mode</b>, denoted by this button, allows you to set a specific amount of minutes to give you a guideline of how long you want a certain task to take.</span>
+    <br>
+    <p>In both modes, you can time sessions that save in the "total session time" counter. While the counter will reset after you've left the browser, your statistics will save over time and are viewable in the statistics page denoted by this logo.</p>
+    <p>We hope this has helped, and have fun tracking!</p>
+    <p style="color: #888;">Click outside or on the "x" to exit this window</p>
+  </div>
+</div>
+
 
 <!--mode switching buttons-->
 <div class="modeswitch" style="cursor: default;">
@@ -57,7 +81,7 @@
   <h2><span class="clock" id="hours">00</span>:<span class="clock" id = "minutes">00</span>:<span class="clock" id="seconds">00</span></h2>
 </div>
 <div id="stopwatch buttons">
-  <button class="buttonstyle1" id="button-start">start stopwatch</button>
+  <button class="buttonstylep" id="button-start">start stopwatch</button>
   <button class="buttonstyle1" id="button-done">stop stopwatch</button>
   <button class="buttonstyle1" id="button-reset">save and reset</button>
   <br>
@@ -89,6 +113,7 @@
 <ul style="width: 65%; margin: auto;" id="myUL">
   <li>add some tasks to get things done!</li>
 </ul>
+
 <br>
 <footer>
   <center><button class="buttonstyle1" onclick="window.open('https://github.com/nolanqyee','_blank');" style="width: 150px; text-align: center;">Made by Nolan Yee</button></center>
@@ -98,4 +123,5 @@
 <script src="scripts/stopwatch.js"></script>
 <script src="scripts/todo.js"></script>
 <script src="scripts/pages.js"></script>
+<script src="scripts/help.js"></script>
 </html>

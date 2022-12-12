@@ -1,12 +1,10 @@
-var btn = document.getElementById("helpbtn");
-var modal = document.getElementById("helpModal");
-//open
-btn.onclick = function() {
-  modal.style.display = "block";
+var helpbtn = document.getElementById("helpbtn");
+var helpmodal = document.getElementById("helpModal");
+
+helpbtn.onclick = function() {
+  helpmodal.style.display = "block";
 }
-//close if click outside
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+
+helpmodal.onclick = function() {
+  helpmodal.style.display = "none";
 }

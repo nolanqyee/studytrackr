@@ -22,7 +22,7 @@
     cursor: pointer;
     "><span style = "cursor: pointer; color: #070707;">studytrackr</span>
   </a>
-  <img src="res/settingsicon.png" width="55" height="50" style="
+  <img id="settingsimagelink" src="res/settingsicon.png" width="55" height="50" style="
   cursor: pointer;
   float: right;
   vertical-align: text-bottom;
@@ -46,8 +46,17 @@
     <br><br>
     <span><img src="res/timerbuttonclicked.png" width="16" height="17" style="vertical-align: text-bottom; padding-bottom: 1px;"> The <b>timer mode</b>, denoted by this button, allows you to set a specific amount of minutes to give you a guideline of how long you want a certain task to take.</span>
     <br>
-    <p>In both modes, you can time sessions that save in the "total session time" counter. While the counter will reset after you've left the browser, your statistics will save over time and are viewable in the statistics page denoted by this logo.</p>
-    <p>We hope this has helped, and have fun tracking!</p>
+    <p>In both modes, your time saves in the "total session time" counter. While the counter will reset after you've left the browser, your statistics will save over time and are viewable in the statistics page denoted by this logo.</p>
+    <p style="color: #888;">Click outside to exit this window</p>
+  </div>
+</div>
+
+<!--Settings Modal-->
+<div id="settingsModal" class="modal">
+  <div class="modal-content">
+    <h2>StudyTrackr - Settings</h2>
+    <strong id="usernamedisplayer">Username:</strong><br>
+    <span><input type="text" class="settingsinput" id="username" placeholder="enter your name here!" style="margin-top: 10px;">  <button class="settingsbutton" id="updateusername">Update</button></span>
     <p style="color: #888;">Click outside to exit this window</p>
   </div>
 </div>
@@ -122,4 +131,6 @@
 <script src="scripts/todo.js"></script>
 <script src="scripts/pages.js"></script>
 <script src="scripts/help.js"></script>
+<script src="scripts/settings.js"></script>
+<script src="scripts/profile.js"></script>
 </html>

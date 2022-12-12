@@ -278,3 +278,28 @@ margin: 2px 1px 2px 1px;
   width: 45%;
   border-radius: 15px;
 }
+
+.settingsbutton {
+  font-family: FreeMono, monospace;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px; 
+  -khtml-border-radius: 5px; 
+  background:#ebecef;
+  color: #070707;
+  border: solid 2px #070707;
+  text-decoration:none;
+  text-align: center;
+  cursor:pointer;
+  padding:5px 0px;
+  width:80px;
+  margin: 2px 1px 2px 1px;
+   outline: none;
+} .settingsbutton:hover{
+  -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+    background:#cccdcf;
+    border: solid 2px #070707;
+    color:#070707;
+}

@@ -21,6 +21,7 @@ window.onload = function () {
     // initial for interval
     var Interval;
 
+    
     usernamefield.value = usernamevalue;
     usernamedisplayer.innerHTML = "Username: " + usernamevalue;
     welcomemessage.innerHTML = "welcome back, " + usernamevalue;

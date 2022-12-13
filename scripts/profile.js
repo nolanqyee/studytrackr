@@ -5,7 +5,6 @@ var usernamedisplayer = document.getElementById("usernamedisplayer");
 var usernamevalue = localStorage.getItem("username");
 var welcomemessage = document.getElementById("welcomemessage");
 
-
 updateusername.onclick = function() {
     localStorage.setItem("username",usernamefield.value);
     usernamevalue = usernamefield.value;

@@ -8,7 +8,6 @@ for (i = 0; i < myNodelist.length; i++) {
   span.appendChild(txt);
   myNodelist[i].appendChild(span);
 }
-
 // close hides list items
 var close = document.getElementsByClassName("close");
 var i;

@@ -22,11 +22,9 @@ window.onload = function () {
     var Interval;
 
     usernamefield.value = usernamevalue;
-    if (usernamevalue == null) {
-      usernamedisplayer.innerHTML = "Username not yet set";
-    } else {
-      usernamedisplayer.innerHTML = "Username: " + usernamevalue;
-    }
+    usernamedisplayer.innerHTML = "Username: " + usernamevalue;
+    welcomemessage.innerHTML = "welcome back, " + usernamevalue;
+
     
   
     // when start button is clicked

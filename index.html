@@ -11,14 +11,16 @@
 <div style="
   padding: 0px 0px 0px 0px;
   margin:auto;
-  width: 50%;
+  width: 100%;
   color: #070707;
   "class="wrapper">
 <h2>
   <a class="imagelink" onclick="location.reload()">
-    <img src="res/stlogo.png" width="68" height="60" style="
+    <img src="res/stlogo.png" width="78" height="62" style="
     vertical-align: middle;
+    padding-left: 10px;
     padding-right: 8px;
+    padding-bottom: 2px;
     cursor: pointer;
     "><span style = "cursor: pointer; color: #070707;">studytrackr</span>
   </a>
@@ -41,7 +43,7 @@
 <div id="helpModal" class="modal">
   <!--content-->
   <div class="modal-content">
-    <span><h3>StudyTrackr - Help</h3></span>
+    <span><h2>studytrackr - help</h2></span>
     <span><img src="res/stopwatchbuttonclicked.png" width="16" height="17" style="vertical-align: text-bottom; padding-bottom: 1px"> The <b>stopwatch mode</b>, denoted by this button, allows you to measure how long something takes, keeping you productive by making sure you aren't spending too long to complete tasks.</span>
     <br><br>
     <span><img src="res/timerbuttonclicked.png" width="16" height="17" style="vertical-align: text-bottom; padding-bottom: 1px;"> The <b>timer mode</b>, denoted by this button, allows you to set a specific amount of minutes to give you a guideline of how long you want a certain task to take.</span>
@@ -53,7 +55,7 @@
 <!--Settings Modal-->
 <div id="settingsModal" class="modal">
   <div class="modal-content">
-    <h2>StudyTrackr - Settings</h2>
+    <h2>studytrackr - settings</h2>
     <strong id="usernamedisplayer">Username:</strong><br>
     <span><input type="text" class="settingsinput" id="username" placeholder="enter your name here!" style="margin-top: 10px;">  <button class="settingsbutton" id="updateusername">Update</button></span>
     <p style="color: #888;">Click outside to exit this window</p>
@@ -61,6 +63,11 @@
 </div>
 
 
+<h2 id="welcomemessage" style="text-align: center; margin-bottom: 30px;">welcome back, </h2>
+
+<div id="BIGGESTDIV">
+<div id="BIGDIV1" style="float: left; width: 50%;">
+<div id="subdivtimer" style="width: 100%; margin: auto; margin-left: 5%;">
 <!--mode switching buttons-->
 <div class="modeswitch" style="cursor: default;">
   <a class="imagelinks" onclick="openTab(event, 'sw')">
@@ -80,50 +87,51 @@
 
 <!--body header-->
 <div id="stopwatchbody">
-<h3>track time and boost productivity!</h3>
 <!--stopwatch body (tab)-->
 <div id = "sw" class="tabcontent">
-<div class="clockui">
-  <h2><span class="clock" id="hours">00</span>:<span class="clock" id = "minutes">00</span>:<span class="clock" id="seconds">00</span></h2>
-</div>
-<div id="stopwatch buttons">
-  <button class="buttonstylep" id="button-start">start stopwatch</button>
-  <button class="buttonstyle1" id="button-done">stop stopwatch</button>
-  <button class="buttonstyle1" id="button-reset">save and reset</button>
-  <br>
-</div>
+  <div class="clockui">
+    <h2><span class="clock" id="hours">00</span>:<span class="clock" id = "minutes">00</span>:<span class="clock" id="seconds">00</span></h2>
+  </div>
+  <div id="stopwatch buttons">
+    <button class="buttonstylep" id="button-start">start stopwatch</button>
+    <button class="buttonstyle1" id="button-done">stop stopwatch</button>
+    <button class="buttonstyle1" id="button-reset">save and reset</button>
+    <br>
+  </div>
 </div>
 <!--timer body (tab)-->
 <div id = "tmr" class="tabcontent">
-<div class="clockui">
-  <h2 class="clock"><span class="clock" id="nminutes">00</span>:<span class="clock" id="nseconds">00</span></h2>
-</div>
-<div id="timerbuttons">
-  <button class="buttonstyle1" id="timer-button-start">start timer</button>
-  <button class="buttonstyle1" id="timer-button-stop">stop timer</button>
-  <button class="buttonstyle1" id="timer-button-reset">save and reset</button>
-  <button class="buttonstyle1" id="timer-button-set">set timer</button>
-</div>
+  <div class="clockui">
+    <h2 class="clock"><span class="clock" id="nminutes">00</span>:<span class="clock" id="nseconds">00</span></h2>
+  </div>
+  <div id="timerbuttons">
+    <button class="buttonstyle1" id="timer-button-start">start timer</button>
+    <button class="buttonstyle1" id="timer-button-stop">stop timer</button>
+    <button class="buttonstyle1" id="timer-button-reset">save and reset</button>
+    <button class="buttonstyle1" id="timer-button-set">set timer</button>
+  </div>
 </div>
 <!--total (do not tab this)-->
   <h3>total session time: <span id="totalhours">00</span>:<span id="totalminutes">00</span>:<span id="totalseconds">00</span></h3>
 </div>
+</div>
+</div>
 
+<div id="BIGDIV2" style="width: 50%; float: right;">
 <!--todolist header-->
+<div id="tododiv" style="width: 80%; margin: auto; margin-right: 15%;">
 <div id="myDIV" class="header">
   <h2>to-do list</h2>
   <input type="text" id="myInput" placeholder="input a task!">
   <span onclick="newElement()" class="addBtn">Add</span>
 </div>
 <!--todolist list-->
-<ul style="width: 65%; margin: auto;" id="myUL">
+<ul style="width: 100%;" id="myUL">
   <li>add some tasks to get things done!</li>
 </ul>
-
-<br>
-<footer>
-  <center><button class="buttonstyle1" onclick="window.open('https://github.com/nolanqyee','_blank');" style="width: 150px; text-align: center;">Made by Nolan Yee</button></center>
-</footer>
+</div>
+</div>
+</div>
 
 <!-- JAVASCRIPT INCOMING -->
 <script src="scripts/stopwatch.js"></script>

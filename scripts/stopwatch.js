@@ -20,6 +20,9 @@ window.onload = function () {
     var appendTotalSeconds = document.getElementById("totalseconds");
     // initial for interval
     var Interval;
+
+    usernamefield.value = usernamevalue;
+    usernamedisplayer.innerHTML = "Username: " + usernamevalue;
   
     // when start button is clicked
     buttonStart.onclick = function() {

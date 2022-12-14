@@ -1,13 +1,14 @@
 var stopwatchimagelink = document.getElementById("stopwatchimagelink");
 var timerimagelink = document.getElementById("timerimagelink");
-stopwatchimagelink.addEventListener("click", () => {
-  stopwatchimagelink.src = "res/stopwatchbuttonclicked.png";
-  timerimagelink.src = "res/timerbutton.png";
-})
-timerimagelink.addEventListener("click", () => {
-  stopwatchimagelink.src = "res/stopwatchbutton.png";
-  timerimagelink.src = "res/timerbuttonclicked.png";
-})
+
+stopwatchimagelink.onclick = function() {
+  stopwatchimagelink.style.color = "#50C878";
+  timerimagelink.style.color = "#888";
+}
+timerimagelink.onclick = function() {
+  timerimagelink.style.color = "#50C878";
+  stopwatchimagelink.style.color = "#888";
+}
 function openTab(evt, idtype) {
     var i, tabcontent, imagelinks;
 

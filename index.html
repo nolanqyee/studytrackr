@@ -4,6 +4,7 @@
 <head>
   <title>StudyTrackr | Track time and boost productivity!</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="icon" href="res/stfavicon.png">
 </head>
 
@@ -12,9 +13,8 @@
   padding: 0px 0px 0px 0px;
   margin:auto;
   width: 100%;
-  color: #070707;
-  "class="wrapper">
-<h2>
+  " class="navbar">
+<h2> 
   <a class="imagelink" onclick="location.reload()">
     <img src="res/stlogo.png" width="78" height="62" style="
     vertical-align: middle;
@@ -22,20 +22,10 @@
     padding-right: 8px;
     padding-bottom: 2px;
     cursor: pointer;
-    "><span style = "cursor: pointer; color: #070707;">studytrackr</span>
+    "><span class="navbar" style = "cursor: pointer;">studytrackr</span>
   </a>
-  <img id="settingsimagelink" src="res/settingsicon.png" width="55" height="50" style="
-  cursor: pointer;
-  float: right;
-  vertical-align: text-bottom;
-  padding-top: 5px;
-  padding-right: 10px;">
-  <img id="helpbtn" src="res/helpicon.png" width="55" height="50" style="
-  cursor: pointer;
-  float: right;
-  vertical-align: text-bottom;
-  padding-top: 5px;
-  padding-right: 10px;">
+  <i class="material-symbols-outlined" id="settingsimagelink" style="font-size: 45px; cursor: pointer; float: right; vertical-align: text-bottom; margin-right: 10px; margin-top: 5px;">settings</i>
+  <i class="material-symbols-outlined" id="helpbtn" style="font-size: 45px; cursor: pointer; float: right; vertical-align: text-bottom; margin-right: 7px; margin-top: 5px;">help</i>
 </h2>
 </div>
 
@@ -58,6 +48,13 @@
     <h2>studytrackr - settings</h2>
     <strong id="usernamedisplayer">Username:</strong><br>
     <span><input type="text" class="settingsinput" id="username" placeholder="enter your name here!" style="margin-top: 10px;">  <button class="settingsbutton" id="updateusername">Update</button></span>
+    <br>
+    <br>
+    <strong>Appearance:</strong><br>
+    <select id="lightdarktoggle" name="lightordark">
+      <option value="Light">Light</option>
+      <option value="Dark">Dark</option>
+    </select>
     <p style="color: #888;">Click outside to exit this window</p>
   </div>
 </div>
@@ -70,17 +67,11 @@
 <!--mode switching buttons-->
 <div class="modeswitch" style="cursor: default;">
   <a class="imagelinks" onclick="openTab(event, 'sw')">
-    <img id="stopwatchimagelink" src="res/stopwatchbuttonclicked.png" width="24" height="26" style="
-    cursor: pointer;
-    padding-top: 2px;
-    vertical-align: middle;">
+    <i class="material-symbols-outlined" id="stopwatchimagelink" style="color: #50C878; font-size: 30px; cursor: pointer; vertical-align: middle; margin-bottom: 1px;">timer</i>
   </a>
   <span>|</span>
   <a class="imagelinks" onclick="openTab(event,'tmr')">
-    <img id="timerimagelink" src="res/timerbutton.png" width="28" height="29" style="
-    cursor: pointer;
-    padding-top: 1px;
-    vertical-align: middle;">
+    <i class="material-symbols-outlined" id="timerimagelink" style="color: #888; font-size: 30px; cursor: pointer; vertical-align: middle; margin-bottom: 3px;">hourglass_empty</i>
   </a>
 </div>
 
@@ -89,12 +80,11 @@
 <!--stopwatch body (tab)-->
 <div id = "sw" class="tabcontent">
   <div class="clockui">
-    <h2><span class="clock" id="hours">00</span>:<span class="clock" id = "minutes">00</span>:<span class="clock" id="seconds">00</span></h2>
+    <h2 class="clock"><span class="clock" id="hours">00</span>:<span class="clock" id = "minutes">00</span>:<span class="clock" id="seconds">00</span></h2>
   </div>
   <div id="stopwatch buttons">
     <button class="buttonstylep" id="button-start">start stopwatch</button>
     <button class="buttonstyle1" id="button-done">stop stopwatch</button>
-    <button class="buttonstyle1" id="button-reset">save and reset</button>
     <br>
   </div>
 </div>
@@ -104,9 +94,8 @@
     <h2 class="clock"><span class="clock" id="nminutes">00</span>:<span class="clock" id="nseconds">00</span></h2>
   </div>
   <div id="timerbuttons">
-    <button class="buttonstyle1" id="timer-button-start">start timer</button>
+    <button class="buttonstylep" id="timer-button-start">start timer</button>
     <button class="buttonstyle1" id="timer-button-stop">stop timer</button>
-    <button class="buttonstyle1" id="timer-button-reset">save and reset</button>
     <button class="buttonstyle1" id="timer-button-set">set timer</button>
   </div>
 </div>
@@ -139,4 +128,5 @@
 <script src="scripts/help.js"></script>
 <script src="scripts/settings.js"></script>
 <script src="scripts/profile.js"></script>
+<script src="scripts/lightdark.js"></script> 
 </html>

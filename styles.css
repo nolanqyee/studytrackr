@@ -1,7 +1,17 @@
-body {background-color: #ebecef; font-family: "Freemono", monospace;}
-    h1 {font-size: 40px}
-    h2 {font-size: 25px}
-    h3 {font-size: 20px}
+:root {
+  --primarybackgroundcolor: #ebecef;
+  --secondarybackgroundcolor: #fff;
+  --primaryaccentcolor: #50C878;
+  --textcolor: #070707;
+  --othertextcolor: #fff;
+  --otherothertextcolor: #070707;
+  --hoveraccentcolor: #cccdcf;
+}
+
+body {background-color: var(--primarybackgroundcolor); font-family: "Freemono", monospace; color: var(--textcolor);}
+    h1 {font-size: 40px; color: var(--textcolor)}
+    h2 {font-size: 25px; color: var(--textcolor)}
+    h3 {font-size: 20px; color: var(--textcolor)}
     
 /* Include the padding and border in an element's total width and height */
 * {
@@ -10,11 +20,24 @@ body {background-color: #ebecef; font-family: "Freemono", monospace;}
 #tmr {
   display: none;
 }
+
+.navbar {
+  color: var(--textcolor);
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
 .modeswitch {
   width: 80%;
-  background-color: white;
-  color: #070707;
-  border: solid 1px white;
+  background-color: var(--secondarybackgroundcolor);
+  color: var(--textcolor);
+  border: solid 1px var(--secondarybackgroundcolor);
   text-align: center;
   margin: auto;
   margin-bottom: 10px;
@@ -27,14 +50,14 @@ body {background-color: #ebecef; font-family: "Freemono", monospace;}
   background-color: inherit;
 }
 .modeswitch button.active{
-  background-color: #ccc;
+  background-color: var(--hoveraccentcolor);
 }
 
 #stopwatchbody {
   width: 80%;
-  background-color: white;
-  color: #070707;
-  border: solid 1px white;
+  background-color: var(--secondarybackgroundcolor);
+  color: var(--textcolor);
+  border: solid 1px var(--secondarybackgroundcolor);
   text-align: center;
   margin: auto;
   -moz-border-radius: 20px;
@@ -44,15 +67,15 @@ body {background-color: #ebecef; font-family: "Freemono", monospace;}
 }
 
 .clockui {
-  background-color: #070707; 
-  color: #50C878; 
+  background-color: #000; 
+  color: var(--primaryaccentcolor); 
   width: 124px; 
   margin: auto; 
   border-radius: 5px;
 }
 
 .clock {
-    color: #50C878;
+    color: var(--primaryaccentcolor);
 }
 
 #button-reset {
@@ -70,8 +93,8 @@ body {background-color: #ebecef; font-family: "Freemono", monospace;}
 }
 
 #tododiv {
-  background-color: white;
-  border: solid 1px white;
+  background-color: var(--secondarybackgroundcolor);
+  border: solid 1px var(--secondarybackgroundcolor);
   -moz-border-radius: 20px;
   -webkit-border-radius: 20px;
   border-radius: 20px; 
@@ -94,7 +117,7 @@ ul li {
   transition: 0.2s;
   width: 85%;
   margin: auto;
-  color: #070707;
+  color: var(--textcolor);
 
   /* make the list items unselectable */
   -webkit-user-select: none;
@@ -105,14 +128,14 @@ ul li {
 
 /* Darker background-color on hover */
 ul li:hover {
-  background: #cccdcf;
-  color: #070707;
+  background: var(--hoveraccentcolor);
+  color: var(--textcolor);
 }
 
 /* When clicked on, add a background color and strike out text */
 ul li.checked {
-  background: #50C878;
-  color: #fff;
+  background: var(--primaryaccentcolor);
+  color: var(--othertextcolor);
   text-decoration: line-through;
 }
 
@@ -120,7 +143,7 @@ ul li.checked {
 ul li.checked::before {
   content: '';
   position: absolute;
-  border-color: #fff;
+  border-color: var(--secondarybackgroundcolor);
   border-style: solid;
   border-width: 0 2px 2px 0;
   top: 10px;
@@ -140,7 +163,7 @@ ul li.checked::before {
 
 .close:hover {
   background-color: #f44336;
-  color: white;
+  color: var(--othertextcolor);
 }
 
 /* Style the header */
@@ -163,7 +186,7 @@ ul li.checked::before {
 input {
   font-family: FreeMono, monospace;
   margin: 0;
-  border: solid 1px #070707;
+  border: solid 1px var(--textcolor);
   border-radius: 5px;
   width: 80%;
   padding: 10px;
@@ -176,21 +199,21 @@ input {
   padding: 10px;
   width: 15%;
   background: #070707;
-  color: #50C878;
+  color: var(--primaryaccentcolor);
   float: center;
   text-align: center;
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
-  border: solid 1px #070707;
+  border: solid 1px black;
   border-radius: 5px;
 }
 
 .addBtn:hover {
-  background-color: #50C878;
-  border: solid 1px #50C878;
-  color: #fff;
-  border: solid 1px #50c878;
+  background-color: var(--primaryaccentcolor);
+  border: solid 1px var(--primaryaccentcolor);
+  color: var(--othertextcolor);
+  border: solid 1px var(--primaryaccentcolor);
 }
 
 .buttonstylep {
@@ -199,9 +222,9 @@ font-family: FreeMono, monospace;
 -webkit-border-radius: 5px;
 border-radius: 5px; 
 -khtml-border-radius: 5px; 
-background:#50C878;
-color: white;
-border: solid 2px #070707;
+background:var(--primaryaccentcolor);
+color: var(--othertextcolor);
+border: solid 2px var(--otherothertextcolor);
 text-decoration:none;
 text-align: center;
 cursor:pointer;
@@ -215,8 +238,8 @@ margin: 2px 1px 2px 1px;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 	background:#28a050;
-	border: solid 2px #070707;
-	color:white;
+	border: solid 2px var(--textcolor);
+	color:var(--othertextcolor);
 }
 
 .buttonstyle1 {
@@ -225,24 +248,24 @@ font-family: FreeMono, monospace;
 -webkit-border-radius: 5px;
 border-radius: 5px; 
 -khtml-border-radius: 5px; 
-background:#ebecef;
-color: #070707;
-border: solid 2px #070707;
+background: var(--primarybackgroundcolor);
+color: var(--otherothertextcolor);
+border: solid 2px var(--textcolor);
 text-decoration:none;
 text-align: center;
 cursor:pointer;
 padding:5px 0px;
 width:130px;
 margin: 2px 1px 2px 1px;
- outline: none;
+outline: none;
 }
 .buttonstyle1:hover{
 	-webkit-transition: all 0.2s ease-in-out;
       -moz-transition: all 0.2s ease-in-out;
       transition: all 0.2s ease-in-out;
-	background:#cccdcf;
-	border: solid 2px #070707;
-	color:#070707;
+	background: var(--hoveraccentcolor);
+	border: solid 2px var(--textcolor);
+	color: var(--otherothertextcolor);
 }
 
 
@@ -250,8 +273,11 @@ margin: 2px 1px 2px 1px;
   text-decoration: none;
 }
 
-.tabcontent {
+#BIGGESTDIV {
   animation: fadeEffect 1s;
+}
+.tabcontent {
+  animation: fadeEffect 0.5s;
 }
 @keyframes fadeEffect {
   from {
@@ -278,10 +304,10 @@ margin: 2px 1px 2px 1px;
 
 /*modal content*/
 .modal-content {
-  background-color: #fff;
+  background-color: var(--secondarybackgroundcolor);
   margin: 10% auto; /* 15% from the top and centered */
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid var(--primarybackgroundcolor);
   width: 45%;
   border-radius: 15px;
 }
@@ -292,9 +318,9 @@ margin: 2px 1px 2px 1px;
   -webkit-border-radius: 5px;
   border-radius: 5px; 
   -khtml-border-radius: 5px; 
-  background:#ebecef;
-  color: #070707;
-  border: solid 2px #070707;
+  background: var(--primarybackgroundcolor);
+  color: var(--textcolor);
+  border: solid 2px var(--textcolor);
   text-decoration:none;
   text-align: center;
   cursor:pointer;
@@ -306,7 +332,17 @@ margin: 2px 1px 2px 1px;
   -webkit-transition: all 0.2s ease-in-out;
         -moz-transition: all 0.2s ease-in-out;
         transition: all 0.2s ease-in-out;
-    background:#cccdcf;
-    border: solid 2px #070707;
-    color:#070707;
+    background: var(--hoveraccentcolor);
+    border: solid 2px var(--textcolor);
+    color:var(--textcolor);
+}
+
+#lightdarktoggle {
+  margin-top: 10px;
+  padding: 5px 5px 5px 5px;
+  font-family: FreeMono, monospace;
+  font-size: 12pt;
+  text-align: left;
+  border-radius: 5px;
+  border: solid 1px var(--textcolor);
 }

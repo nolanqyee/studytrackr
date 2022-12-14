@@ -14,20 +14,19 @@ window.onload = function () {
     var appendSeconds = document.getElementById("seconds")
     var buttonStart = document.getElementById('button-start');
     var buttonDone = document.getElementById('button-done');
-    var buttonReset = document.getElementById('button-reset');
     var appendTotalHours = document.getElementById("totalhours");
     var appendTotalMinutes = document.getElementById("totalminutes");
     var appendTotalSeconds = document.getElementById("totalseconds");
     // initial for interval
     var Interval;
 
-    
+    //not stopwatch
     usernamefield.value = usernamevalue;
     usernamedisplayer.innerHTML = "Username: " + usernamevalue;
     welcomemessage.innerHTML = "welcome back, " + usernamevalue;
-
+    //also not stopwatch
+    lightdarktogglefunction();
     
-  
     // when start button is clicked
     buttonStart.onclick = function() {
       clearInterval(Interval);
@@ -107,33 +106,19 @@ window.onload = function () {
               appendTotalMinutes.innerHTML = totalminutes;
             }
             totalminutes = minutesresidue;
-        }     
+        }    
+        clearInterval(Interval);
+        hours = "00";
+        minutes = "00";
+        seconds = "00";
+        appendHours.innerHTML = hours;
+        appendMinutes.innerHTML = minutes;
+        appendSeconds.innerHTML = seconds;
+        hours = 0;
+        minutes = 0;
+        seconds = 0; 
     }
-    buttonDone.addEventListener("click", () => {
-      buttonDone.style.display = "none";
-      buttonStart.style.display = "none";
-      buttonReset.style.display = "inline";
-    })
     
-  // when reset button clicked
-    buttonReset.onclick = function() {
-       clearInterval(Interval);
-      hours = "00";
-      minutes = "00";
-      seconds = "00";
-      appendHours.innerHTML = hours;
-      appendMinutes.innerHTML = minutes;
-      appendSeconds.innerHTML = seconds;
-      hours = 0;
-      minutes = 0;
-      seconds = 0;
-      //test
-    }
-    buttonReset.addEventListener("click", () =>{
-      buttonStart.style.display = "inline";
-      buttonDone.style.display = "inline";
-      buttonReset.style.display = "none";
-    })
     // this is what happens when you click start
     function startTimer () {
       seconds++; 
@@ -170,7 +155,6 @@ window.onload = function () {
     var timerseconds = document.getElementById("nseconds");
     var timerstart = document.getElementById("timer-button-start");
     var timerstop = document.getElementById("timer-button-stop");
-    var timerreset = document.getElementById("timer-button-reset");
     var timerset = document.getElementById("timer-button-set");
     //timer buttons appearing/disappearing
     timerstart.addEventListener("click", () => {
@@ -186,7 +170,9 @@ window.onload = function () {
 
     timerstop.addEventListener("click", () =>{
       timerstop.style.display="none";
-      timerreset.style.display="inline";
+      timerstart.style.display="none";
+      timerset.style.display="inline";
+
       for(i=3; i<=5; i++){
         colorchangelol[i].style.color = "#50C878";
       }
@@ -260,28 +246,24 @@ window.onload = function () {
             appendTotalMinutes.innerHTML = totalminutes;
           }
           totalminutes = minutesresidue;
-      }     
-    }
-
-    timerreset.addEventListener("click", () => {
-      timerreset.style.display="none";
-      timerstart.style.display="inline";
-      timerset.style.display="inline";
+      }  
       minutes = "00";
       seconds = "00";
       timerminutes.innerHTML = minutes;
       timerseconds.innerHTML = seconds;
       minutes = 0;
-      seconds = 0;
-    })
+      seconds = 0;   
+    }
+
     
     //setting the timer function
     timerset.addEventListener("click", () =>{
       timerinput = prompt("Enter a number of minutes:");
       minutes = timerinput;
-      if (minutes==""){
+      if (minutes==null || minutes==""){
         minutes=0;
         timerminutes.innerHTML = "00";
+        return;
       }
       else if (minutes<10){
         timerminutes.innerHTML = "0" + minutes;

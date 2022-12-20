@@ -12,6 +12,7 @@ body {background-color: var(--primarybackgroundcolor); font-family: "Freemono", 
     h1 {font-size: 40px; color: var(--textcolor)}
     h2 {font-size: 25px; color: var(--textcolor)}
     h3 {font-size: 20px; color: var(--textcolor)}
+    button {font-family: "Freemono", monospace;}
     
 /* Include the padding and border in an element's total width and height */
 * {
@@ -106,6 +107,7 @@ body {background-color: var(--primarybackgroundcolor); font-family: "Freemono", 
 ul {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 /* Style the list items */
@@ -128,7 +130,7 @@ ul li {
 
 /* Darker background-color on hover */
 ul li:hover {
-  background: var(--hoveraccentcolor);
+  background: var(--primarybackgroundcolor);
   color: var(--textcolor);
 }
 

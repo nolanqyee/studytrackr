@@ -26,6 +26,13 @@ window.onload = function () {
     welcomemessage.innerHTML = "welcome back, " + usernamevalue;
     //also not stopwatch
     lightdarktogglefunction();
+    var savedList = localStorage.getItem("todolist");
+    if (savedList) {
+      myUL.innerHTML = savedList;
+    }
+    document.getElementById("myUL").addEventListener("click", () =>{
+      deletelistitem();
+    })
     
     // when start button is clicked
     buttonStart.onclick = function() {

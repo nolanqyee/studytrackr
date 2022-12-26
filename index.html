@@ -29,6 +29,16 @@
 </h2>
 </div>
 
+<!--Onboarding Modal-->
+<div id="onboardingModal" class="modal">
+  <!--content-->
+  <div class="modal-content" style="width: 60%;">
+    <center><h1 style="margin-top: 10px;">welcome to studytrackr!</h1></center>
+    <p>Welcome to StudyTrackr, a time-tracking tool to help you use your time to be more productive, in school, work, or any other aspects of your life!</p>
+    <p>Please enter your preferred username: </p>
+    <span><input type="text" class="settingsinput" id="onboardname" placeholder="enter your name here" style="margin-bottom: 20px;">  <button class="settingsbutton" id="setusername" style="width: 40px">Set</button></span>
+  </div>
+</div>
 <!--Help Modal-->
 <div id="helpModal" class="modal">
   <!--content-->
@@ -99,7 +109,11 @@
   </div>
 </div>
 <!--total (do not tab this)-->
-  <h3>total session time: <span id="totalhours">00</span>:<span id="totalminutes">00</span>:<span id="totalseconds">00</span></h3>
+<h3>session time: <span id="totalhours">00</span>:<span id="totalminutes">00</span>:<span id="totalseconds">00</span></h3>
+</div>
+<div id="statsdiv">
+  <h2 style="text-align: center;">statistics</h2>
+  <p><b>lifetime time spent:</b> <span id="lifehours">0</span> hours, <span id="lifeminutes">0</span> minutes, <span id="lifeseconds">0</span> seconds</p>
 </div>
 </div>
 </div>
@@ -130,4 +144,5 @@
 <script src="scripts/settings.js"></script>
 <script src="scripts/profile.js"></script>
 <script src="scripts/lightdark.js"></script> 
+<script src="scripts/goal.js"></script>
 </html>

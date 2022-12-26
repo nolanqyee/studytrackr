@@ -348,3 +348,17 @@ outline: none;
   border-radius: 5px;
   border: solid 1px var(--textcolor);
 }
+
+#statsdiv {
+  padding: 2px;
+  padding-left: 20px;
+  margin: auto;
+  margin-top: 10px;
+  width: 80%;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px; 
+  -khtml-border-radius: 20px;
+  background-color: var(--secondarybackgroundcolor);
+  color: var(--textcolor);
+}

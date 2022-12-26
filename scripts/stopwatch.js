@@ -7,6 +7,10 @@ window.onload = function () {
     var totalhours = 00;
     var totalminutes = 00;
     var totalseconds = 00;
+
+    var lifetimehours = localStorage.getItem("lifetimehours");
+    var lifetimeminutes = localStorage.getItem("lifetimeminutes");
+    var lifetimeseconds = localStorage.getItem("lifetimeseconds");
       
     // gets data from HTML
     var appendHours = document.getElementById("hours")
@@ -17,6 +21,19 @@ window.onload = function () {
     var appendTotalHours = document.getElementById("totalhours");
     var appendTotalMinutes = document.getElementById("totalminutes");
     var appendTotalSeconds = document.getElementById("totalseconds");
+    var appendLifeHours = document.getElementById("lifehours");
+    var appendLifeMinutes = document.getElementById("lifeminutes");
+    var appendLifeSeconds = document.getElementById("lifeseconds");
+    var onboardingModal = document.getElementById("onboardingModal");
+
+    if (localStorage.getItem("username")==null){
+      onboardingModal.style.display = "block";
+    }
+
+    appendLifeHours.innerHTML = lifetimehours;
+    appendLifeMinutes.innerHTML = lifetimeminutes;
+    appendLifeSeconds.innerHTML = lifetimeseconds;
+
     // initial for interval
     var Interval;
 
@@ -53,6 +70,30 @@ window.onload = function () {
         totalminutes += minutes;
         totalhours += hours;
         
+        // local storage lifetime stats
+        lifetimehours = Number(lifetimehours) + Number(hours);
+        lifetimeminutes = Number(lifetimeminutes) + Number(minutes);
+        lifetimeseconds = Number(lifetimeseconds) + Number(seconds);
+        
+        var lifesecres = lifetimeseconds%60;
+        lifetimeminutes += Math.trunc(lifetimeseconds/60);
+        lifetimeseconds -= Math.trunc(lifetimeseconds/60)*60;
+        var lifeminres = lifetimeminutes%60;
+        lifetimehours += Math.trunc(lifetimeminutes/60);
+        lifetimeminutes -= Math.trunc(lifetimeminutes/60)*60;
+
+        localStorage.setItem("lifetimehours", lifetimehours);
+        localStorage.setItem("lifetimeminutes", lifetimeminutes);
+        localStorage.setItem("lifetimeseconds", lifetimeseconds);
+
+        lifetimehours = localStorage.getItem("lifetimehours");
+        lifetimeminutes = localStorage.getItem("lifetimeminutes");
+        lifetimeseconds = localStorage.getItem("lifetimeseconds");
+        appendLifeHours.innerHTML = lifetimehours;
+        appendLifeMinutes.innerHTML = lifetimeminutes;
+        appendLifeSeconds.innerHTML = lifetimeseconds;
+        
+        //normal calcs
         var secondsresidue = totalseconds%60;
         totalminutes += Math.trunc(totalseconds/60);
   
@@ -193,6 +234,27 @@ window.onload = function () {
       totalseconds += seconds;
       totalminutes += minutes;
       
+      //local
+      lifetimehours = Number(lifetimehours);
+      lifetimeminutes = Number(lifetimeminutes) + Number(minutes);
+      lifetimeseconds = Number(lifetimeseconds) + Number(seconds);
+      lifetimeminutes += Math.trunc(lifetimeseconds/60);
+      lifetimeseconds -= Math.trunc(lifetimeseconds/60)*60;
+      lifetimehours += Math.trunc(lifetimeminutes/60);
+      lifetimeminutes -= Math.trunc(lifetimeminutes/60)*60;
+
+      localStorage.setItem("lifetimehours", lifetimehours);
+      localStorage.setItem("lifetimeminutes", lifetimeminutes);
+      localStorage.setItem("lifetimeseconds", lifetimeseconds);
+
+      lifetimehours = localStorage.getItem("lifetimehours");
+      lifetimeminutes = localStorage.getItem("lifetimeminutes");
+      lifetimeseconds = localStorage.getItem("lifetimeseconds");
+      appendLifeHours.innerHTML = lifetimehours;
+      appendLifeMinutes.innerHTML = lifetimeminutes;
+      appendLifeSeconds.innerHTML = lifetimeseconds;
+
+      //reg
       var secondsresidue = totalseconds%60;
       totalminutes += Math.trunc(totalseconds/60);
 

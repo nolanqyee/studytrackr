@@ -1,4 +1,6 @@
 window.onload = function () {
+  lightdarktogglefunction();
+
     // variables printed on actual timer
     var hours = 00;
     var minutes = 00;
@@ -42,7 +44,6 @@ window.onload = function () {
     usernamedisplayer.innerHTML = "Username: " + usernamevalue;
     welcomemessage.innerHTML = "welcome back, " + usernamevalue;
     //also not stopwatch
-    lightdarktogglefunction();
     var savedList = localStorage.getItem("todolist");
     if (savedList) {
       myUL.innerHTML = savedList;

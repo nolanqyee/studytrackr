@@ -5,12 +5,24 @@ lightdarkselect.value = darktrue;
 
 var r = document.querySelector(':root');
 
+//Listens for change in theme settings
 lightdarkselect.addEventListener('input', (event) => {
     selection = lightdarkselect.value;
     localStorage.setItem("darktrue",selection);
     darktrue = localStorage.getItem("darktrue");
+    detectChromiumTheme();
     lightdarktogglefunction();
 })
+
+function detectChromiumTheme() {
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    console.log('Dark theme is enabled');
+      darktrue ="Dark"; //This works better for debuging rather than leaving it blank
+  } else {
+    console.log('Light theme is enabled');
+      darktrue ="Light";
+  }
+}
 
 function lightdarktogglefunction() {
     if (darktrue=="Light"){
